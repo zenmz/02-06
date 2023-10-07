@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar bg-dark">
+        <div class="container">
+            <span class="navbar-brand mb-0 h1 text-light">Kalkulator Sederhana</span>
+        </div>
+    </nav>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-3">
+                <div class="mb-3">
+                    <label class="form-label">Nilai 1</label>
+                    <input type="number" class="form-control" id="nilai1">
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="mb-3">
+                    <label class="form-label">Nilai 2</label>
+                    <input type="number" class="form-control" id="nilai2">
+                </div>
+            </div>
+            <div class="col-3">
+                <label class="form-label">Perhitungan</label>
+                <select class="form-select" onchange="perhitungan(value)">
+                    <option selected>Pilih Perhitungan</option>
+                    <option value="tambah">Tambah</option>
+                    <option value="kurang">Kurang</option>
+                    <option value="kali">Kali</option>
+                    <option value="bagi">Bagi</option>
+
+                </select>
+            </div>
+            <div class="col-3">
+                <div class="mb-3">
+                    <label class="form-label">Hasil</label>
+                    <input type="number" class="form-control" id="hasil" readonly>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <script>
+        function perhitungan(value) {
+            let nilai1 = parseInt($("#nilai1").val());
+            let nilai2 = parseInt($("#nilai2").val());
+            let hasil
+
+            if (value == "tambah") {
+                hasil = nilai1 + nilai2
+            } else if (value == "kurang") {
+                hasil = nilai1 - nilai2
+            } else if (value == "kali") {
+                hasil = nilai1 * nilai2
+            } else if (value == "bagi") {
+                hasil = nilai1 / nilai2
+            }
+
+            $("#hasil").val(hasil);
+        }
+    </script>
+</body>
+
+</html>
